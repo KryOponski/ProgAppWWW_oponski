@@ -1,0 +1,237 @@
+﻿/*root wszystko co jest w html i nie jest uwzglednione w css, dostanie to co jest nizej 
+    primaary color wedlug internetu najczesciej stosowany jest do menu, nawigacji, przyciskow,interfejsu itp
+    accent color dla ulatwienia poslugiwaniem sie klawiatura 
+    bg color tlo strony bialy ale nie za bialy
+    caard bg kolor kaart jest bielszy zeby lekko sie wyroznial
+    text color kolor tekstu
+    text muted do pobocznego tekstu 
+    border color kolor obramowwania
+    kolor tlaa naglowka taabeli
+*/
+:root {   
+    --primary-color: #2c3e50;
+    --accent-color: #e67e22;
+    --bg-color: #fdfdfd;
+    --card-bg: #ffffff;
+    --text-color: #222222;
+    --text-muted: #555555;
+    --border-color: #cccccc;
+    --table-header-bg: #eaeaea;
+}
+/*
+    * to wszystkie znaczniki div p h1 a button itd itp
+    befor afteeer ozdobne elementy prze lub po znaczniku
+box sizing jest zeby html nie wyrzucal mi paaddingow zza ekran nie potrzebnie
+
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/*
+    margin margines zewnetrzny ustawiony na 0 zeby kazda przeglaadaarka musiala sie do tego dostosowac
+    padding to samo tylko dla marginesu zewnetrznego
+    font famili ustawia czcionke dla caalego body , sans serif jest tylko wtedy kiedy ktos ariala nie ma i ustawi mu ezszeryfowa czcionke (technikum sie przydaje :)
+    var bg color ustawia to co w root po prostu
+    color var text to samo co wyzej tylko dla tekstu
+    line height zzwwieksza odstep miedzy linijkami
+*/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+/*
+    max width maksymalna szerekosoc dla duzych ekranow
+    margin 0 auto centruje wszystko
+    padding 1rem jest dla telefonow zeby tekst nie zaczynal sie odrazu z linia telefonu
+    width 100% jak ktos ma szerokosc miejsza niz 1100px zajmie strona cala przestrzen jesli jest wiekszaz tylko 1100px
+*/
+header, main, footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+}
+/* nav ul zaznacze te elementy nie bede tego pisal wszedzie bo sensu to nie ma chyba kazdy wie jak zaznacza sie w css . dla klass
+    : pseudoeelementy i pseudoklasy i
+    pusta  jaak jest dla wszystkich znacznikow np img
+    displaay flex wlaacza flexboxy aby elementy byly obok siebie
+    flex wrap jak mamy za maly ekran automatycznie przerzucaa obiekt na dol
+    gap odstepy
+    list style usuwa kropki z listy
+    pading i margin ostatni raz wspominaam 
+*/
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+/* text decoration usuwa podkreslenia standardowe
+    color padding juz opisywalem
+    font weight pogrubia linki 
+*/
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+}
+/* display blok zmienia wyswietlanie defultowe czyli inline na blokowe,
+    height auto dostosowuje obraz to szerokosci tak aby mial originalne proporcje
+*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/*displaay grid uklad stron siatkowy
+    grid template columns 1fr ustawia cala szerkosc dla 1obrazka pozniej w css jest na wiekszee monitory, ale skupiam sie tutaj naa telefonie
+    gap opisywaalem
+    margin top margines tylko gorny 
+*/
+.products {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+/*chybaa nie maa nic niezwyklego tutaj*/
+.product-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 4px;
+}
+/* box shadow rzuca lekki cien  poziom 0 dol 2 rozmycie 4 pozniej sa kolory (r - czerwony g - zielony b - niebieski a - przezroczystosc(alfa) 
+    flex direction zmieenia uklad kart z poziomego na pion
+    justify content wyrownuje rzeczy do innych kolumn zeby guzik byl naa lini z guzikiemm itd
+*/
+.product-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    /* chyba nie musze opisywac*/
+    .product-card h2 {
+        font-size: 1.25rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+/* opisalem*/
+.price {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+/*opisywalem*/
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+/**/
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+/**/
+label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+/**/
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: var(--text-color);
+}
+/**/
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+/*cursor zmienia efekt po naajechaniu myszkaa*/
+button[type="submit"],
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+    text-align: center;
+}
+/*opisywalem no bottom sie pojawilo ale to margines dolny*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+/*opisalem*/
+caption {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+/*opisalem*/
+th, td {
+    border: 1px solid var(--border-color);
+    padding: 0.75rem;
+    text-align: left;
+}
+/*opisalem*/
+th {
+    background-color: var(--table-header-bg);
+}
+/*a:hover po najechaniu myszka a opaacity przezroczystosc*/
+a:hover, button:hover {
+    opacity: 0.85;
+}
+/*focus visible wszystkie elementy z ktorymi uzytkownik wchodzi w interakcje
+    outilne pogurbienie tekstu po naajechaniu czy jak klawiatura bedziemy sie poruszac
+    offset ouline daje efekt plywania obiektow i przesuwa je o 2px
+*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+/*media pozwala zaastosowwaac dane style w zaaleznosci od w tym przypadku szerokosci ekranu
+    repeaat zamiast ctrl c ctrl v powtarza cos iles razy znaczy (ilosc powtorzen, co)
+    reszta juz byla
+*/
+@media (min-width: 768px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    header, main, footer {
+        padding: 2rem;
+    }
+}

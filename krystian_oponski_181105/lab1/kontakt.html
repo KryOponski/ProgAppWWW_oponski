@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>index</title>
+</head>
+<body>
+    <header>
+        <h1>Kontakt</h1>
+        <nav aria-label="Główne menu">
+            <ul>
+                <li><a href="index.html">Strona głowna</a></li>
+                <li><a href="produkt.html">Produkt</a></li>
+                <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <p>
+            Umieść informację: „Formularz demonstracyjny. Dane pojawią się w adresie strony; zapytanie nie
+            zostanie zapisane ani wysłane e-mailem”. Poprawne wysłanie przeładuje stronę z parametrami w
+            URL. Walidacja przeglądarki pomaga użytkownikowi, ale w docelowym sklepie dane trzeba też
+            sprawdzać na serwerze.
+        </p>
+        <section class="contact-section">
+            <h2>Zapytaj o produkt</h2>
+
+            <form action="kontakt.html" method="get">
+                <div class="form-group">
+                    <label for="email-input">Adres e-mail <span aria-hidden="true">*</span>:</label>
+                    <input type="email" id="email-input" name="email" required placeholder="np. numer_albumu@student.uwm.edu.pl">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-select">Produkt <span aria-hidden="true">*</span>:</label>
+                    <select id="product-select" name="produkt" required>
+                        <option value="">Wybierz produkt</option>
+                        <option value="pomidor">Pomidor</option>
+                        <option value="ogorek">Ogórek</option>
+                        <option value="arbuz">Arbuz</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="quantity-input">Liczba sztuk (od 1 do 5) <span aria-hidden="true">*</span>:</label>
+                    <input type="number" id="quantity-input" name="ilosc" required min="1" max="5" step="1" value="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="message-textarea">Wiadomość<span aria-hidden="true">*</span>:</label>
+                    <textarea id="message-textarea" name="wiadomosc" required minlength="10" maxlength="500" placeholder="Wiadomość od 10 do 500 liter"></textarea>
+                </div>
+
+                <button type="submit">Wyślij</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
