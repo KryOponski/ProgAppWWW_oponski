@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>index</title>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Kontakt</h1>
+        <nav aria-label="Główne menu">
+            <ul>
+                <li><a href="index.html">Strona głowna</a></li>
+                <li><a href="produkt.html">Produkt</a></li>
+                <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+            </ul>
+            <button type="button" id="motyw" aria-pressed="false">Tryb ciemny</button>
+        </nav>
+
+    </header>
+    <main>
+        <p>
+            Podgląd lokalny. Formularz nie wysyła wiadomości.
+        </p>
+        <section class="contact-section">
+            <h2>Zapytaj o produkt</h2>
+
+            <form id="formZapytania" action="kontakt.html" method="get" novalidate>
+                
+                    <label for="email-input">Adres e-mail <span aria-hidden="true">*</span>:</label>
+                    <input type="email" id="email-input" name="email" required
+                           placeholder="np. numer_albumu@student.uwm.edu.pl">
+                          
+                    <label for="product-select">Produkt <span aria-hidden="true">*</span>:</label>
+                    <select id="product-select" name="produkt" required>
+                        <option value="">Wybierz produkt</option>
+                        <option value="pomidor">Pomidor</option>
+                        <option value="ogorek">Ogórek</option>
+                        <option value="arbuz">Arbuz</option>
+                    </select>
+                
+                    <label for="quantity-input">Liczba sztuk (od 1 do 5) <span aria-hidden="true">*</span>:</label>
+                    <input type="number" id="quantity-input" name="ilosc" required
+                           min="1" max="5" step="1" value="1">
+                
+                    <label for="message-textarea">Wiadomość <span aria-hidden="true">*</span>:</label>
+                    <textarea id="message-textarea" name="wiadomosc" required
+                              minlength="10" maxlength="500"
+                              placeholder="Wiadomość od 10 do 500 liter"></textarea>
+                    <p id="errorWiadomosc" class="error" role="alert" hidden></p>
+
+                <p id="wycena" class="wynik-wyceny" aria-live="polite"></p>
+
+                <button type="submit">Wyślij</button>
+            </form>
+
+            <section id="podsumowanie" class="podsumowanie" aria-live="polite" hidden>
+                <h3>Podsumowanie zapytania</h3>
+                <p><strong>Produkt:</strong> <span id="podProdukt"></span></p>
+                <p><strong>Ilość:</strong> <span id="podIlosc"></span></p>
+                <p><strong>Wartość:</strong> <span id="podWartosc"></span></p>
+                <p><strong>Wiadomość:</strong></p>
+                <p id="podWiadomosc"></p>
+            </section>
+        </section>
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
